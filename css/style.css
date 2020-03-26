@@ -1,0 +1,17 @@
+*{
+	padding:0px;
+	margin:0px;
+}
+body{
+	font-family: 'Bebas Neue', cursive;
+
+}
+nav a{
+	font-size:22px;
+}
+.navbar-brand{
+	font-size:45px;
+}
+.visina{
+	height: 100vh;
+}
