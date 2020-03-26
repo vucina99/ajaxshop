@@ -8,7 +8,7 @@ $(document).ready(function(){
 	$(".pol").change(ispispolova);
 	$("#marka").change(menjanjevrednosti);
 	$("#dugmepretraga").click(pretrazuj);
-
+	$("#gumad").click(salji)
 	
 });
 var c = 0;
@@ -152,7 +152,9 @@ function semaispisamenu(vrednost){
       <li class="nav-item">
         <a class="nav-link active" href="${vrednost[0].link2.link}">${vrednost[0].link2.text}</a>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link active" href="${vrednost[0].link3.link}">${vrednost[0].link3.text}</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link active" href="${vrednost[0].link4.link}">${vrednost[0].link4.text} ${drugafja()}</a>
       </li>
@@ -550,10 +552,83 @@ function footer(){
 				<a href="https://www.facebook.com/" class="pr-3 text-light"><i class="fab fa-facebook fa-2x text-light"></i></a>
 				<a href="https://twitter.com/login?lang=sr" class="pr-3 text-light"><i class="fab fa-twitter fa-2x text-light"></i></a>
 				<a href="sitemap.xml" class="pr-3 text-light"><i class="fas fa-sitemap fa-2x text-light"></i></a>
+				<a href="dokumentacija.pdf" class="pr-3 text-light"><i class="fas fa-file-pdf fa-2x"></i></a>
 		</div>
 		</div>
 	</div><br><br><br>`;
 
 	document.querySelector("footer").innerHTML = html;
 }
+
+
+if(window.location.href.indexOf('kontakt.html') > -1 ){
+
+
+
+
+function salji(){
+	var name = document.getElementById("name").value;
+	var email = document.getElementById("email").value;
+	var question = document.getElementById("question").value;
+	var regname = /^[A-z]{2,15}$/;
+	var regemail =   /^[a-z]+[\.\-\_\!a-z\d]*\@[a-z]{2,10}(\.[a-z]{2,3}){1,2}$/ ;
+	var regquestion = /^[A-z\d\-\_\.\:]{2,150}$/;
+
+	if(name == "" || question == ""  || email == ""){
+		document.getElementById("ispis").innerHTML = `* Morate popuniti sva polja ` ;
+		document.getElementById("beli").innerHTML = ' ' ;
+		document.getElementById("name").classList.add('crveniokvir');
+		document.getElementById("question").classList.add('crveniokvir');
+		document.getElementById("email").classList.add('crveniokvir');
+	}else{
+
+		document.getElementById("ispis").innerHTML = '' ;
+		if(!regname.test(name) ){
+			
+			document.getElementById("name").classList.add('crveniokvir');
+			document.getElementById("ispisime").innerHTML = `* Ime mora imati vise od 1 slova a najvise 15 ` ;
+		}else if(regname.test(name)){
+			
+			document.getElementById("name").classList.remove('crveniokvir');
+			document.getElementById("ispisime").innerHTML = ' ' ;		
+		}
+
+		if(!regemail.test(email) ){
+			
+
+			document.getElementById("email").classList.add('crveniokvir');
+			document.getElementById("ispisemail").innerHTML = `* Niste dobro upisali svoj email ` ;
+		}
+		else if(regemail.test(email)){
+			
+			document.getElementById("ispisemail").innerHTML = ' ' ;	
+			document.getElementById("email").classList.remove('crveniokvir');	
+		}
+		if(!regquestion.test(question)){
+			
+			document.getElementById("question").classList.add('crveniokvir');
+			document.getElementById("ispisquestion").innerHTML = `* Niste dobro popunili polje za pitanje  ` ;
+		}
+		else if(regquestion.test(question)){
+			
+			document.getElementById("ispisquestion").innerHTML = ' ' ;	
+			document.getElementById("question").classList.remove('crveniokvir');	
+		}
+		if((regquestion.test(question) && regemail.test(email) && regname.test(name)) == true ){
+			document.getElementById("beli").innerHTML = 'Uspesno poslata poruka' ;
+		}if((regquestion.test(question) && regemail.test(email) && regname.test(name)) == false){
+			document.getElementById("beli").innerHTML = ' ' ;
+		}
+		
+
+	}
+	
+}
+}
+
+
+
+
+
+
 

@@ -297,7 +297,9 @@ function semaispisamenu(vrednost){
       <li class="nav-item">
         <a class="nav-link active" href="${vrednost[0].link2.link}">${vrednost[0].link2.text}</a>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link active" href="${vrednost[0].link3.link}">${vrednost[0].link3.text}</a>
+      </li>
       <li class="nav-item reset">
         <a class="nav-link active" href="${vrednost[0].link4.link}">${vrednost[0].link4.text} ${drugafja()}</a>
       </li>
@@ -325,6 +327,8 @@ function footer(){
                 <a href="https://www.facebook.com/" class="pr-3 text-light"><i class="fab fa-facebook fa-2x text-light"></i></a>
                 <a href="https://twitter.com/login?lang=sr" class="pr-3 text-light"><i class="fab fa-twitter fa-2x text-light"></i></a>
                 <a href="sitemap.xml" class="pr-3 text-light"><i class="fas fa-sitemap fa-2x text-light"></i></a>
+                <a href="dokumentacija.pdf" class="pr-3 text-light"><i class="fas fa-file-pdf fa-2x"></i></a>
+
         </div>
         </div>
     </div><br><br><br>`;
