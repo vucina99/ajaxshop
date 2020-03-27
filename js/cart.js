@@ -188,7 +188,8 @@ function showEmptyCart() {
                     idemoo = 300;
                 }
                 patike[i].quantity = idemoo;
-                 displayCartData();
+                $("#ukupno").load("korpa.html");
+                 
                 break;
             }      
         }
